@@ -21,5 +21,15 @@ extension SUITCase {
         attachment.name = name
 
         add(attachment)
+  }
+   
+    func addImage (name: String) {
+        let screenShot = screenshot()
+        let attachment = XCTAttachment(screenshot: screenShot)
+       
+        attachment.lifetime = .keepAlways
+        attachment.name = name
+        
+        add(attachment)
     }
 }
