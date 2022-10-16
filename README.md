@@ -16,13 +16,13 @@ Navigate to project settings and add a package on **Swift Packages** page.
 Copy-Paste a link to this repository in the **Choose Package Repository** window. 
 Continue configuring dependency as needed.
 
-![Steps 1, 2 and 3](SUITCase/Assets.xcassets/InstallationSteps123.png)
-![Steps 4 and 5](SUITCase/Assets.xcassets/InstallationSteps45.png)
+![Steps 1, 2 and 3](SUITCase/InstallationSteps123.png)
+![Steps 4 and 5](SUITCase/InstallationSteps45.png)
 
 Finally, add the Environmental Variable **IMAGES_DIR** to your Scheme. 
 If you want to keep your reference Images with your test code, you should probably set it to **$(SOURCE_ROOT)/Images**
 
-![Environment Variable](SUITCase/Assets.xcassets/EnvironmentVariable.png)
+![Environment Variable](SUITCase/EnvironmentVariable.png)
 
 
 ## Your first test with SUITCase
