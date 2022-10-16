@@ -113,20 +113,20 @@ If difference is greater than zero, the reference and difference images will be 
 * You can pass the method with the  `withMethod` argument:  `verifyScreenshot(method: SUITCaseMethodStrict()])`
 * `SUITCaseMethodStrict()` \
 The most accurate method, which compares original screenshots pixel by pixel.
-![Strict](Docs/strict.png)
+![Strict](Sources/SUITCase/Assets.xcassets/strict.imageset/strict.png)
 * `SUITCaseMethodWithTolerance(_: Double = 0.1)` \
 The default method downscales screenshots and allows configurable tolerance while comparing pixels.
 [Read more about this method in our blog.](https://devexperts.com/blog/getting-to-the-bottom-of-the-rgb-pixels-part-1-color-difference/)
-![withTolerance](Docs/withTolerance.png)
+![withTolerance](Sources/SUITCase/Assets.xcassets/withTolerance.imageset/withTolerance.png)
 * `SUITCaseMethodGreyscaleColor(tolerance: Double = 0.1)` \
 Downscales screenshots, removes color saturation, and allows configurable tolerance while comparing pixels.
-![Greyscale](Docs/greyscale.png)
+![Greyscale](Sources/SUITCase/Assets.xcassets/greyscale.imageset/greyscale.png)
 * `SUITCaseMethodDNA(tolerance: Double = 0.1, scaleFactor: Double = 0.03)` \
 Extremely dowscales screenshots, and allows configurable tolerance while comparing pixels. Inspired by [the PhotoDNA.](https://www.microsoft.com/en-us/photodna)
-![DNA](Docs/dna.png)
+![DNA](Sources/SUITCase/Assets.xcassets/dna.imageset/dna.png)
 * `SUITCaseMethodAverageColor()` \
 Compares the average colors of screenshots.
-![Average color](Docs/averageColor.png)
+![Average color](Sources/SUITCase/Assets.xcassets/averageColor.imageset/averageColor.png)
 * You can also verify the average color without the reference screenshot by using  `averageColorIs(_ uiColor: UIColor, tolerance: Double = 0.1)` \
 `XCTAssert(app.buttons["Red Button"].averageColorIs(.red))`
 
