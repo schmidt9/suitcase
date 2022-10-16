@@ -11,12 +11,9 @@ import XCTest
 /// SUITCase inherits from XCTestCase and allows comparing screenshots while testing UI.
 @available(iOS 12.0, *)
 @available(tvOS 10.0, *)
-open class SUITCase: XCTestCase, XCUIScreenshotProviding {
+open class SUITCase: XCTestCase {
    
-    public func screenshot() -> XCUIScreenshot {
-        let screenshot = XCUIScreen.main.screenshot()
-        return screenshot
-    }
+
     
     private lazy var testNameComponents = name
         .trimmingCharacters(in: .punctuationCharacters)
