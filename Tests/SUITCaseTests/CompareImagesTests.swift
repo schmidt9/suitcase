@@ -84,13 +84,13 @@ class CompareImagesTests: XCTestCase {
         assertComparison(method: SUITCaseMethodStrict(),
                          rgbaImage,
                          lighterImage,
-                         expectedDifference: (RGBAImage(uiImage: image),
+                         expectedDifference: (RGBAImage(uiImage: loadImage(for: Bundle.main.path(forResource: "moodJournal", ofType: "png"))),
                                               10 / 11))
     }
 
     func testWithToleranceComparison() {
        
-        guard let image = UIImage(named: "moodJournal") else {return}
+        guard let image = UIImage(contentsOfFile: Bundle.main.path(forResource: "moodJournal", ofType: "png")) else {return}
         assertComparison(method: SUITCaseMethodWithTolerance(0.05),
                          rgbaImage,
                          lighterImage,
