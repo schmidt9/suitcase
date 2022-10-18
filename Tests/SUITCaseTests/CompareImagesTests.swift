@@ -52,9 +52,13 @@ class CompareImagesTests: XCTestCase {
             }
         }
     }
- 
-   lazy var image = UIImage(named: "moodJournal")!
-  lazy var rgbaImage = RGBAImage(uiImage: image)
+    
+    func loadImage(for path: String) -> UIImage {
+        guard let image = UIImage(ontentsOfFile: path) else {return}
+        return image
+    }
+   
+    lazy var rgbaImage = RGBAImage(uiImage: loadImage(for: Bundle.main.path(forResource: "moodJournal", ofType: "png")!))
 
 
     var lighterImage: RGBAImage {
