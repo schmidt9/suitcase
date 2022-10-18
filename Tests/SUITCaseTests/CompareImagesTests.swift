@@ -54,7 +54,7 @@ class CompareImagesTests: XCTestCase {
     }
     
     func loadImage(for path: String) -> UIImage {
-        guard let image = UIImage(ontentsOfFile: path) else {return}
+        guard let image = UIImage(contentsOfFile: path) else {return}
         return image
     }
    
