@@ -12,6 +12,9 @@ import XCTest
 @available(iOS 12.0, *)
 @available(tvOS 10.0, *)
 open class SUITCase: XCTestCase {
+   
+
+    
     private lazy var testNameComponents = name
         .trimmingCharacters(in: .punctuationCharacters)
         .components(separatedBy: .whitespaces)
@@ -20,7 +23,8 @@ open class SUITCase: XCTestCase {
 
     var deviceModelName = UIDevice.modelName.replacingOccurrences(of: " ", with: "_")
     var deviceLanguageCode = Locale(identifier: Locale.preferredLanguages.first!).languageCode
-
+ 
+    
     /// Enables Record Mode, which saves reference images.
     public var screenshotComparisonRecordMode = false
     /// The global threshold variable, which allows the difference between collected and reference screenshots.

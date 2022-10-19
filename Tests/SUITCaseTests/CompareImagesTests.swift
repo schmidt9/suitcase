@@ -5,7 +5,7 @@
 
  See https://code.devexperts.com for more open source projects
 */
-
+import UIKit
 import XCTest
 @testable import SUITCase
 
@@ -52,12 +52,14 @@ class CompareImagesTests: XCTestCase {
             }
         }
     }
+    
+    func loadImage(for path: String) -> UIImage {
+        guard let image = UIImage(contentsOfFile: path) else {return}
+        return image
+    }
+   
+    lazy var rgbaImage = RGBAImage(uiImage: loadImage(for: Bundle.main.path(forResource: "moodJournal", ofType: "png")!))
 
-    let rgbaImage = RGBAImage(pixels: [.black, .blue, .green, .cyan,
-                                       .red, .magenta, .yellow, .white,
-                                       .darkGray, .gray, .lightGray, .clear],
-                              width: 4,
-                              height: 3)
 
     var lighterImage: RGBAImage {
         var template = rgbaImage
@@ -76,35 +78,28 @@ class CompareImagesTests: XCTestCase {
     }
 
     func testStrictComparison() {
+       
+       
+      
         assertComparison(method: SUITCaseMethodStrict(),
                          rgbaImage,
                          lighterImage,
-                         expectedDifference: (RGBAImage(pixels: [.black, .black, .black, .black,
-                                                                 .black, .black, .black, .white,
-                                                                 .black, .black, .black, .clear],
-                                                        width: 4,
-                                                        height: 3),
+                         expectedDifference: (RGBAImage(uiImage: loadImage(for: Bundle.main.path(forResource: "moodJournal", ofType: "png"))),
                                               10 / 11))
     }
 
     func testWithToleranceComparison() {
+       
+        guard let image = UIImage(contentsOfFile: Bundle.main.path(forResource: "moodJournal", ofType: "png")) else {return}
         assertComparison(method: SUITCaseMethodWithTolerance(0.05),
                          rgbaImage,
                          lighterImage,
-                         expectedDifference: (RGBAImage(pixels: [.black, .black, .white, .white,
-                                                                 .black, .white, .white, .white,
-                                                                 .black, .black, .black, .clear],
-                                                        width: 4,
-                                                        height: 3),
+                         expectedDifference: (RGBAImage(uiImage: image),
                                               6 / 11))
         assertComparison(method: SUITCaseMethodWithTolerance(0.06),
                          rgbaImage,
                          lighterImage,
-                         expectedDifference: (RGBAImage(pixels: [.black, .white, .white, .white,
-                                                                 .white, .white, .white, .white,
-                                                                 .black, .black, .black, .clear],
-                                                        width: 4,
-                                                        height: 3),
+                         expectedDifference: (RGBAImage(uiImage: image),
                                               4 / 11))
     }
 

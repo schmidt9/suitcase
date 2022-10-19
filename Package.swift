@@ -13,6 +13,7 @@ import PackageDescription
 let package = Package(
     name: "SUITCase",
     products: [
+        // swift-tools-version:5.3
         .library(
             name: "SUITCase",
             targets: ["SUITCase"])

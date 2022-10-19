@@ -21,5 +21,6 @@ extension SUITCase {
         attachment.name = name
 
         add(attachment)
-    }
+  }
+   
 }
